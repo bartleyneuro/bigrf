@@ -58,7 +58,7 @@ setMethod("proximities", signature(forest="bigcforest"), function(
     
     # Create big.matrix for proximities.
     if (is.null(cachepath)) {
-        prox <- big.matrix(forest@nexamples, nnearest, type="double")
+        prox <- Matrix(0,forest@nexamples, nnearest)
     } else {
         prox <- big.matrix(forest@nexamples, nnearest, type="double",
                            backingfile="prox",
